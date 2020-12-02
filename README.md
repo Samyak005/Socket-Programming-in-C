@@ -4,19 +4,24 @@ For example, let the server directory contains files file1.txt, file2.txt, file3
 The client will create a connection to the server and send requests to download files to the client\
 directory. It will write the files into its own directory. Progress should be printed while\
 downloading the file.\
-Error handling such as requesting missing files must be handled appropriately.\
+Error handling such as requesting missing files must be handled appropriately.
 
-'client>' 'get <fileName>'
-The file if exists at the server side should be downloaded in the client directory else appropriate\
+```
+client> get <fileName>
+The file if exists at the server side should be downloaded in the client directory else appropriate
 error must be displayed.
+```
 
-'client>' 'get <file1> <file2> <file3>'
-Multiple files requested should be downloaded in the client directory.\
+```
+client> get <file1> <file2> <file3>
+Multiple files requested should be downloaded in the client directory.
+```
 
-'client>' 'exit'
-connection with the server is closed.\
-
-File size can be greater than 1 GB.\
+```
+client> exit
+connection with the server is closed.
+```
+File size can be greater than 1 GB.
 
 ## Instructions
 1. Open folder client and server
@@ -50,7 +55,7 @@ File sent
 ```
 
 ## Code:
-### 'client.c' : 
+### client.c : 
 
 getfilename() function
 first sends file name to the server and server sends back 'ERROR' if file not found in its directory, otherwise sends the file size.
@@ -65,5 +70,5 @@ splits the command line input containing multiple files after get command using 
 
 main function while(1) loop -> CLI
 
-### 'server.c':
+### server.c:
 Keep checking for exit code sent, otherwise keep reading from file and sending to socket connection.
